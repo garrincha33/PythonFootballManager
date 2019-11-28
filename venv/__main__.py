@@ -4,7 +4,7 @@ import generate
 def main():
     print("Welcome to Py Director")
     print(" 1) Start Game")
-    print(" 1) Load Game")
+    print(" 2) Load Game")
     while True:
         start_option = input(">")
         if start_option == "1":
@@ -12,6 +12,8 @@ def main():
             break
         elif start_option == "2":
             load_game()
+            break
+        elif start_option.lower() == "exit":
             break
         else:
             print("sorry please choose a valid option")
@@ -31,6 +33,8 @@ def new_game():
         team_selection()
     elif confirm.upper() == "N":
         print("sorry lets try that again")
+    elif confirm.lower() == 'exit':
+        sys.exit()
     else:
         print("sorry name entered incorrectly make sure you enter Y or N")
 
@@ -49,19 +53,21 @@ def team_selection():
             choice = input(">")
             my_team = league.team_list[int(choice) - 1]
             print("%s, is that your team? Y Or N?" % my_team.get_name())
-            confirm = input(">")
-            if confirm.upper() == "Y":
-                print("ok you are now manager of %s" % my_team.get_name())
-                team = generate.PlayerTeam("Testing", my_team.prestige)
-                # so this creates a new type of team
-                # using the class PlayerTeam with
-                # the information from the old team
-                league.team_list[int(choice)-1] = team
-                break
-            elif confirm.upper() == "N":
-                print("sorry lets try that again")
-            else:
-                print("i didnt catch that")
+            confirm = input('> ')
+            if confirm.upper() == 'Y':
+                print('Alright. You are the now the manager of %s' % my_team.get_name())
+            my_team = generate.PlayerTeam(my_team.get_name(), my_team.prestige)
+            league.team_list[int(
+                choice) - 1] = my_team
+            print(str(my_team.prestige))
+            print('Here are your current players, and some information about them:')
+            for x in range(len(my_team.player_list)):
+                print('Name:'.ljust(25, ' ') + ' | ' + 'Position:'.ljust(10, ' ') + ' | ' + 'Rating:')
+            break
+    # elif confirm.upper() == 'N':
+    #     print("Sorry! Let's try that again.")
+    # else:
+    #     print("I didn't catch that. Make sure you enter either a Y or an N.")
 
 
 main()

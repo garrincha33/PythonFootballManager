@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="545b7ec1-47fd-4256-9595-94e61519a2cd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/start.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/__main__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/__main__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/db/players" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/db/teams" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/generate.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/generate.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,7 +26,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Python" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">

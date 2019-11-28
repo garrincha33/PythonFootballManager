@@ -16,6 +16,7 @@ class League():
         self.team_list = []
         lines = [line.rstrip('\n') for line in open('teams.txt')]
         random.shuffle(lines)
+        # makes a list of all the teams I have in teams.txt and then randomly shuffles them
 
         for n in range(10):
             if n < 2:
@@ -27,6 +28,8 @@ class League():
             elif n < 10:
                 prestige = 3
             self.team_list.append(Team(lines.pop(), prestige))
+            # fills team_list with Team instances, giving the first item in the list lines and a random prestige,
+            # ensurely for a certain number of prestiges in a league
             random.shuffle(self.team_list)
 
         self.games_played = 0
@@ -39,13 +42,7 @@ class League():
             self.games_played = 0
 
 
-def gen_players():
-    lines = [line.rstrip('\n') for line in open('players.txt')]
-    random.shuffle(lines)
-
-
-class Team:
-
+class Team():
     def __init__(self, name, prestige):
         self.player_list = []
         self.name = name
@@ -60,9 +57,22 @@ class Team:
             wealth = random.randint(7500001, 10000000)
         self.wealth = wealth
         self.stadium = self.name + ' Stadium'
-        gen_players()
+        self.gen_players()
 
-    # TODO finish the player generation, and create a player class
+    def gen_players(self):
+        lines = [line.rstrip('\n') for line in open('players.txt')]
+        random.shuffle(lines)
+        # TODO finish the player generation, and create a player class
+        names = [line.rstrip('\n') for line in open('players.txt')]
+        first_names = names[0].split('/')
+        last_names = names[1].split('/')
+        random.shuffle(first_names)
+        random.shuffle(last_names)
+        for n in range(16):
+            full_name = first_names.pop() + ' ' + last_names.pop()
+            self.player_list.append(Player(self, full_name))
+
+    # TODO make player generation have a certain # of each position, and have balanced stats based on prestige
 
     def get_name(self):
         return self.name
@@ -71,3 +81,19 @@ class Team:
 class PlayerTeam(Team):
     def add_player_list(self, player_list):
         self.player_list = player_list
+
+    def test(self):
+        return 'hello'
+
+
+class Player():
+    def __init__(self, team, name):
+        # TODO add position, rating, and other stats
+        self.team = team
+        self.name = name
+
+    def get_name(self):
+        return self.name
+
+    def get_team(self):
+        return self.team
